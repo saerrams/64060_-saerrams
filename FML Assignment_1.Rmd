@@ -1,0 +1,54 @@
+---
+title: "Gender Data"
+author: "Shashank"
+date: "2024-02-04"
+output: html_document
+---
+#I have Downloaded the dataset from https://www.kaggle.com/datasets/elakiricoder/gender-classification-dataset
+
+```{r}
+Car_data <- read.csv("C:/Users/aerra/Documents/car data.csv")
+
+Car_data <- na.omit(Car_data)
+
+head(Car_data)
+
+```
+
+## Descriptive Statistics for Quantitative Variables
+
+```{r}
+quantitative_variable <- Car_data[, c("Present_Price", "Selling_Price")]
+
+summary(quantitative_variable)
+
+```
+# Descriptive Statisticsfor Categorical Variable
+
+```{r}
+Categorical_variable <- Car_data[, c("Year","Transmission")]
+
+table(Categorical_variable)
+```
+# Transform Variables
+
+```{r}
+log_rank <- log(Car_data$Kms_Driven)
+
+print(log_rank)
+
+```
+#plotting variable
+
+```{r}
+hist(Car_data$Year,main = "HISTOGRAM OF YEAR")
+```
+#scatterplot of 2 variables
+
+```{r}
+plot(x = Car_data$Selling_Price, y = Car_data$Kms_Driven,
+     xlab = "Label for X-axis", ylab = "Label for Y-axis",
+     main = "Title of Scatterplot")
+```
+
+
